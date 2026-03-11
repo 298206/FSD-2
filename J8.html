@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // write one json string with date property and print date in indian standard time(IST) formate while clicking on button.
+        function call() {
+            obj = JSON.parse('{"dob":"1993-09-02"}')
+            obj = new Date(obj.dob)
+            document.getElementById("demo").innerHTML = obj
+        }
+    </script>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button onclick="call()">Click here</button>
+</body>
+
+</html>
