@@ -5,10 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        // consider below  JSON object and fetch value using for of loop and for in loop.
+        let obj = {
+            "FSD": [{ "Topic": "HTML", "course": "Beginer", "content": ["tags", "tabel", "form"] },
+            { "Topic": "CSS", "course": "Beginer", "content": ["style", "color"] }]
+        }
+        for (x in obj.FSD) {
+            for (y in obj.FSD[x]) {
+                document.write(obj.FSD[x][y] + "<br>")
+            }
+        }
+
+        for (x1 of obj.FSD) {
+            document.write(x1.Topic + "<br>")
+        }
+    </script>
 </head>
 
 <body>
-
+    <!-- HTML
+        Beginer
+        tags,tabel,form
+        CSS
+        Beginer
+        style,color -->
 </body>
 
 </html>

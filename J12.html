@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  1. setTimeout()
+          2. setInterval()-->
+</head>
+
+<body>
+    <p id="p1">Hye!!</p>
+    <script>
+        setTimeout(myfun, 5000)
+        // 1st: function name and 2nd : time in ms
+        function myfun() {
+            document.getElementById("p1").innerHTML = "LJU"
+        }
+
+        // Or
+
+        // setTimeout(() => { console.log("hi") }, 2000)
+    </script>
+
+</body>
+
+</html>

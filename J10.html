@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- write a JSON object which contents array of 3 objects each object contents 2 property name and age
+     now sort an array by age in desending order print name and age in desending order in console. -->
+    <script>
+        let obj = {
+            "person":
+                [
+                    {
+                        "name": "Riya",
+                        "age": 20
+                    },
+                    {
+                        "name": "preet",
+                        "age": 18
+                    },
+                    {
+                        "name": "Sarva",
+                        "age": 24
+                    }
+                ]
+        }
+
+        for (i in obj.person) {
+            for (j in obj.person) {
+                if (obj.person[i].age > obj.person[j].age) {
+                    let temp = obj.person[i]
+                    obj.person[i] = obj.person[j]
+                    obj.person[j] = temp
+
+                }
+            }
+        }
+        for (i in obj.person) {
+            console.log(obj.person[i].name + " " + obj.person[i].age)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
