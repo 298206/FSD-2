@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- write a code to perform the following task 
+     1. add three buttons(inc,dec,stop)
+     2. inc = font size: max size 200px
+      , dec= font size =  min size 20 px
+      , default size =50 px
+      , stop button to stop inc or dec the font interval = 100 ms -->
+</head>
+
+<body>
+    <p id="i1" style="font-size: 50px;">Hello !!</p>
+    <button onclick="inc()">increase</button>
+    <button onclick="dec()">decrease</button>
+    <button onclick="stop()">stop</button>
+    <script>
+        font = 50
+        function fun() {
+            document.getElementById("i1").style.fontSize = font + "px"
+        }
+
+        function inc() {
+            test = setInterval(() => { if (font < 200) { fun(++font) } }, 100)
+        }
+        function dec() {
+            test = setInterval(() => { if (font > 20) { fun(--font) } }, 100)
+        }
+        function stop() {
+            clearInterval(test)
+        }
+    </script>
+
+</body>
+
+</html>
