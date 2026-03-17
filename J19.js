@@ -1,6 +1,9 @@
 
 //  write data to file,append data to file , read the file using use callback.
 
+// write node js script to write an array of object with properties cricketers name and
+//  it's number in a file named cricketer.txt then the read file and display the object on console.
+
 var fs = require("fs")
 
 fs.writeFile("node.txt",
