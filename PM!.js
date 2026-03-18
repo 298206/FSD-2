@@ -11,3 +11,5 @@ console.log(ext)
 
 path2 = pm.parse("D:/Riyaa/PM.html")
 console.log(path2)
+
+console.log(path2.name)
