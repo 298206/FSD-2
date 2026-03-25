@@ -1,0 +1,19 @@
+// Write Node JS script two listner for 
+// print no of events asscoiated with an emmitter remove one of the listene and call remaining listner again
+// also print no of remaining listener
+// at the end remove all listeners and count the listener
+const ee = require('events')
+const e = new ee()
+let list1 = ()=>{
+    console.log("listner 1 ")
+}
+let list2 = ()=>{
+    console.log("listner 2 ")
+}
+e.on("common", list1)
+e.on("common", list2)
+console.log(e.listenerCount('common'))
+e.removeListener('common',list2)
+console.log(e.listenerCount('common'))
+e.removeAllListeners('common')
+console.log(e.listenerCount('common'))

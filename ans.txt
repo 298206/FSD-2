@@ -1,0 +1,34 @@
+var fs = require("fs");
+fs.writeFile("Source.txt","dhandha ma dhyan apo brbr chee ??!",function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        fs.readFile("Source.txt","utf-8",function(err,data){
+            if(err){
+                console.log(err);
+            }
+            else{
+                fs.writeFile("Destination.txt",data,function(err){
+                    if(err){
+                        console.log(err)
+                    }
+                    else{
+                        fs.readFile("Destination.txt","utf-8",function(err,data){
+                            if(err){
+                                console.log(err)
+                            }
+                            else{
+                                console.log(data)
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+})
+
+
+
+

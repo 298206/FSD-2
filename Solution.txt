@@ -1,0 +1,42 @@
+// Write nodejs script to fetch values from url and display output as asked
+// 1. Data must be written in file exam.txt(part of url)
+// File name must be fetched from url. 
+// Output must be: Hello!\nWelcome to LJU FSD2 T1 Test\n#Allthebest
+// 2. Read the content from file and send response to server and display data in '/' page in same 
+// format, but in h1 tag and in red color. 
+// 3. If any other page is requested, it shows page not found in plain text. 
+
+
+const http = require('http')
+const url = require('url')
+const fs = require('fs')
+const address = 'https://www.google.com/exam.txt?c1=Hello&c2=FSD2 T1 Test&c3=Welcome to LJU#allthebest'
+process.noDeprecation = true;
+
+const u = url.parse(address, true)
+fs.writeFileSync(u.pathname.split('/')[1], `${u.query.c1}\n${u.query.c3 + ' ' + u.query.c2}\n${u.hash}`)
+
+http.createServer((req,res) => {
+   if(req.url === '/') {
+        const data = fs.readFileSync(u.pathname, 'utf-8')
+        res.writeHead(
+                200, {
+                    'Content-Type': 'text/html'
+                }
+            ) 
+        // for( var d of data) {
+        //     res.write(`<h1 style = "color: red">${d}</h1>`)
+        // }
+        
+        res.write(`<pre><h1 style = "color: red">${data}</h1></pre>`)
+        res.end()
+    }
+   else {
+    res.writeHead(
+            404, {
+                'Content-Type': 'text/plain'
+            }
+        )
+        res.end(`Page not found`)
+   }
+}).listen(3120);

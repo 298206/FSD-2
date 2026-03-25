@@ -1,0 +1,37 @@
+var pm = require("path");
+var fs = require("fs");
+
+Path = pm.dirname("LJ/sample.txt")
+console.log(Path)
+
+fs.mkdir(Path,function(err){
+    if(err){
+        console.log(err)
+    }
+    else{
+        fname = pm.basename("LJ/sample.txt")
+        console.log(fname);
+        fs.writeFile(Path+"/"+fname,"New file created inside",function(err){
+            if(err){
+                console.log(err)
+            }
+            else{
+                fs.copyFile(Path+"/"+fname,Path+"/new.txt",function(err){
+                    if(err){
+                        console.log(err)
+                    }
+                    else{
+                        fs.unlink(Path+"/"+fname,function(err){
+                            if(err){
+                                console.log(err)
+                            }
+                            else{
+                                console.log("Old File deleted")
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+})

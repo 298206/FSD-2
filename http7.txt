@@ -1,0 +1,21 @@
+var http = require("http")
+var u = require("url")
+var fs = require("fs")
+
+addr = "http://localhost:6051/demo.html"
+q = u.parse(addr,true)
+process.noDeprecation=true;
+console.log(q)
+
+http.createServer(function(req,res){
+    fs.readFile("."+(req.url === '/'?"/About.html":req.url),function(err,data){
+        if(err){
+            res.writeHead(404,{'content-type':'text/plain'})
+            res.end("Page not found")
+        }
+        else{
+            res.writeHead(200,{'content-type':'text/html'})
+            res.end(data);
+        }
+    })
+}).listen(8106)

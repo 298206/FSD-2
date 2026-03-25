@@ -1,3 +1,15 @@
-6,7,8,9,10
-2,3,2,3,2
-Solution after a^b 36,343,64,729,100
+var division1 = {"num" : [6,7,8,9,10]}
+var division2 = {"num" : [2,3,2,3,2]}
+
+var fs = require("fs")
+
+fs.writeFileSync("PB88.txt",JSON.stringify(division1)+"\n"+JSON.stringify(division2))
+
+var result = []
+for(i in division1.num){
+    result[i] = Math.pow(division1.num[i],division2.num[i])
+}
+
+fs.appendFileSync("PB88.txt","\nSolution after a^b "+result)
+
+console.log(result)

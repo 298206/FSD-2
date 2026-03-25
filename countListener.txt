@@ -1,0 +1,23 @@
+var myevent = require("events")
+
+ee = new myevent();
+
+ee.on("commonEvent",l1 = function(){
+    console.log("l1")
+})
+
+ee.on("commonEvent",l2 = function(){
+    console.log("l2")
+})
+
+console.log(myevent.listenerCount(ee,'commonEvent'))
+
+ee.removeListener("commonEvent",l1)
+// ee.emit("commonEvent")
+
+console.log(myevent.listenerCount(ee,'commonEvent'))
+
+ee.removeAllListeners("commonEvent")
+console.log(myevent.listenerCount(ee,'commonEvent'))
+
+

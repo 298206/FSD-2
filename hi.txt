@@ -1,0 +1,32 @@
+// write nod js script to handle events 
+//1. check the radius is (-)ve or not if neg. then display radius must be (+)ve 
+//2. check side is (-)ve or not  then display side must be (+)ve 
+const EventEmitter = require("events");
+var ee = new EventEmitter();
+
+var radiusListener = function(rad) {
+    if (rad < 0) {
+        console.log("Error: Radius must be (+)ve");
+    } else {
+        rad1=3.14*2*rad
+        console.log(`Radius validated: ${rad1}`);
+    }
+};
+
+var sidesListener = function(a, b, c) {
+    if (a < 0 || b < 0 || c < 0) {
+        console.log("Error: Sides must be (+)ve");
+    } else {
+        c=a*b*c
+        console.log(`Sides validated: ${c}`);
+    }
+};
+
+ee.on("Radius", radiusListener);
+ee.on("Sides", sidesListener);
+
+ee.emit("Radius", -5); 
+ee.emit("Radius", 10); 
+
+ee.emit("Sides", 3, -4, 5); 
+ee.emit("Sides", 3, 4, 5); 
